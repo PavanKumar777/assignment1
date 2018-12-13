@@ -1,1 +1,42 @@
-
+<html>
+<head>
+<title>STUDENT DETAILS</title>
+</head>
+<body>
+<script type="text/javascript">
+function student(name)
+{
+this.name=name;
+this.sub=new Array(Math.floor(Math.random() *100),Math.floor(Math.random() *100),Math.floor(Math.random() *100));
+this.total=this.sub[0]+this.sub[1]+this.sub[2];
+this.avg=this.total/3;
+}
+var s1=new student("pavan");
+var s2=new student("likith");
+var s3=new student("rakesh");
+var s4=new student("prudhvi");
+var s5=new student("lokesh");
+var arr=[s1,s2,s3,s4,s5];
+arr.sort(function(a,b){ if(a.name>b.name) return 1;
+else if(a.name<b.name) return -1;
+else return 0;});
+document.writeln("SORT BY NAME"+"<br>");
+document.writeln("NAME \tTOTAL \t AVERAGE"+"<br>");
+print();
+function print(){
+for(var i=0;i<5;i++)
+{
+   document.writeln(arr[i].name+" \t"+arr[i].total+"\t"+arr[i].avg+"<br>");
+}
+}
+document.writeln("SORT BY TOTAL"+"<br>");
+document.writeln("NAME \tTOTAL \t AVERAGE"+"<br>");
+arr.sort(function(a,b){return a.total-b.total;});
+print();
+document.writeln("SORT BY AVERAGE"+"<br>");
+document.writeln("NAME \tTOTAL \t AVERAGE"+"<br>");
+arr.sort(function(a,b){return a.avg-b.avg;});
+print();
+</script>
+</body>
+</html>
